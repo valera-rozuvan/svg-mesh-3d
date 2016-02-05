@@ -16,13 +16,13 @@ void main() {
     vec3(0.0, 1.0, 0.0),
     vec3(-sin(theta), 0.0, cos(theta))
   );
-  
+
   // push outward
   vec3 offset = mix(vec3(0.0), direction.xyz * rotMat, 1.0 - animate);
-  
+
   // scale triangles to their centroids
   vec3 tPos = mix(centroid.xyz, position.xyz, scale) + offset;
-  
+
   gl_Position = projectionMatrix *
               modelViewMatrix *
               vec4(tPos, 1.0);
